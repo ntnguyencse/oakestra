@@ -22,7 +22,6 @@ def register_app(applications, userid):
         application['microservices'] = []
         app_id = mongo_add_application(application)
 
-
     return mongo_get_applications_of_user(userid), 200
 
 
