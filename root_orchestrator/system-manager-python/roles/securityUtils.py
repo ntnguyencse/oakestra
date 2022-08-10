@@ -100,4 +100,4 @@ def create_jwt_secret_key_cluster(identity, expiration, claims):
 
 
 def check_jwt_token_validity(token):
-    return decode_token(encoded_token=token, allow_expired=False)
+    return decode_token(encoded_token=token)
