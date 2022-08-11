@@ -185,7 +185,6 @@ def handle_init_greeting(jsonarg):
         'network_component_port': NETWORK_COMPONENT_PORT,
         'cluster_name': MY_CHOSEN_CLUSTER_NAME,
         'cluster_info': {},
-        #Do we want to ask for the cluster location in the pairing process?
         'cluster_latitude': MY_CLUSTER_LATITUDE,
         'cluster_longitude': MY_CLUSTER_LONGITUDE,
         'pairing_key': CLUSTER_PAIRING_KEY,
@@ -213,7 +212,7 @@ def handle_init_final(jsonarg):
         MY_ASSIGNED_CLUSTER_ID = data['id']
 
         global MY_ASSIGNED_SECRET_KEY
-        MY_ASSIGNED_SECRET_KEY = data['secret key']
+        MY_ASSIGNED_SECRET_KEY = data['secret_key']
 
         mongo_add_secret_key(MY_ASSIGNED_CLUSTER_ID, MY_ASSIGNED_SECRET_KEY)
 
