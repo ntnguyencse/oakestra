@@ -3,7 +3,6 @@ from datetime import datetime
 
 import ext_requests.user_db
 import logging
-import ext_requests.user_db
 from mail import mail
 from mail.mail import ResetPasswordMailFactory
 from roles import securityUtils

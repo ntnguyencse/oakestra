@@ -70,9 +70,16 @@ HTTP scheduling answer from scheduler back to cluster manager. A list of workers
 ## Usage
 
 - First export the required parameters:
-  - export SYSTEM_MANAGER_URL=" < ip address of the root orchestrator > "
-  - export CLUSTER_NAME=" < name of the cluster > "
-  - export CLUSTER_LOCATION=" < location of the cluster > "
+  - Directly from the configuration file provided from the UI:
+    - cp <address_of_the_file> .env
+  - Otherwise:
+    - export SYSTEM_MANAGER_URL=' < ip address of the root orchestrator > '
+    - export CLUSTER_NAME=' < name of the cluster > '
+    - export USER_NAME=' < username > '
+    - export CLUSTER_PAIRING_KEY=' < cluster pairing key to attach and run the cluster > ' (only if it is the first time running the cluster)
+    - export CLUSTER_SECRET_KEY=' < cluster secret key to run the cluster > ' (only if it is NOT the first time running the cluster)
 
 - Use the docker-compose.yml with `docker-compose up` to start the mqtt broker and the database of the cluster-orchestrator.
+
+- [note]: In case you are on Windows, instead of "export VARIABLE='variable_name'" use "$env:VARIABLE='variable_name'"
  
