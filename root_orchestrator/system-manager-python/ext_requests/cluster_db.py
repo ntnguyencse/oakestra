@@ -82,6 +82,8 @@ def mongo_update_cluster_information(cluster_id, data):
     more = data.get('more')
     worker_groups = data.get('worker_groups')
 
+    aggregation_per_architecture = data.get('aggregation_per_architecture',{})
+
     datetime_now = datetime.now()
     datetime_now_timestamp = datetime.timestamp(datetime_now)
 
@@ -91,6 +93,7 @@ def mongo_update_cluster_information(cluster_id, data):
                   'total_gpu_cores': gpu_cores, 'total_gpu_percent': gpu_percent,
                   'aggregated_memory_percent': memory_percent, 'memory_in_mb': memory_in_mb,
                   'active_nodes': nodes, 'virtualization': virtualization, 'arch': architecture,
+                  'aggregation_per_architecture': aggregation_per_architecture,
                   'more': more,
                   'last_modified': datetime_now, 'last_modified_timestamp': datetime_now_timestamp,
                   'worker_groups': worker_groups}},
