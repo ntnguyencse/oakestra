@@ -158,9 +158,6 @@ def mongo_aggregate_node_information(TIME_INTERVAL):
 
     mongo_update_jobs_status(TIME_INTERVAL)
     jobs = mongo_find_all_jobs()
-    print("\n\n\n")
-    print(aggregation_per_architecture)
-    print("\n\n\n")
     return {'cpu_percent': cumulative_cpu, 'memory_percent': cumulative_memory,
             'cpu_cores': cumulative_cpu_cores, 'cumulative_memory_in_mb': cumulative_memory_in_mb,
             'gpu_cores': gpu_cores, 'gpu_percent': gpu_percent,
