@@ -110,7 +110,6 @@ def mongo_aggregate_node_information(TIME_INTERVAL):
     cumulative_memory_in_mb = 0
     number_of_active_nodes = 0
     technology = []
-    architecture = []
     aggregation_per_architecture = {}
 
     nodes = find_all_nodes()
@@ -135,7 +134,6 @@ def mongo_aggregate_node_information(TIME_INTERVAL):
                 
                 arch = n.get('node_info').get('architecture')
                 if arch is not None:
-                    architecture.append(arch) if arch not in architecture else architecture
                     aggregation = None
                     if aggregation_per_architecture.get(arch,None) is None:
                         aggregation_per_architecture[arch] = {}
@@ -161,7 +159,7 @@ def mongo_aggregate_node_information(TIME_INTERVAL):
     return {'cpu_percent': cumulative_cpu, 'memory_percent': cumulative_memory,
             'cpu_cores': cumulative_cpu_cores, 'cumulative_memory_in_mb': cumulative_memory_in_mb,
             'gpu_cores': gpu_cores, 'gpu_percent': gpu_percent,
-            'number_of_nodes': number_of_active_nodes, 'jobs': jobs, 'virtualization': technology, 'arch' : architecture,
+            'number_of_nodes': number_of_active_nodes, 'jobs': jobs, 'virtualization': technology,
             'aggregation_per_architecture' : aggregation_per_architecture, 'more': 0}
 
 
