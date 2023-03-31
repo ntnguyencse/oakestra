@@ -74,7 +74,7 @@ Since version 0.4, Oakestra (previously, EdgeIO) uses the following deployment d
 
 `deploy_curl_application.yaml`
 
-```yaml
+```json
 {
   "sla_version" : "v2.0",
   "customerID" : "Admin",
@@ -216,6 +216,49 @@ each call to this endpoint generates a new instance of the service
 - Use `DELETE /api/service/<serviceid>/instance/<instance number>` to delete a specific instance of a service
 - Use `DELETE /api/application/<appid>` to delete all together an application with all the services and instances
 
+## Unikernel
+It is also possible to use Unikernels by changing the virtulization in of the microservice
+```json
+{
+	"sla_version": "v2.0",
+	"customerID": "Admin",
+	"applications": [{
+		"applicationID": "",
+		"application_name": "nginx",
+		"application_namespace": "test",
+		"application_desc": "Simple demo of an Nginx server Unikernel",
+		"microservices": [{
+			"microserviceID": "",
+			"microservice_name": "nginx",
+			"microservice_namespace": "test",
+			"virtualization": "unikernel",
+			"cmd": [],
+			"memory": 100,
+			"vcpus": 1,
+			"vgpus": 0,
+			"vtpus": 0,
+			"bandwidth_in": 0,
+			"bandwidth_out": 0,
+			"storage": 0,
+			"code": "https://github.com/Sabanic-P/app-nginx/releases/download/v1.0/kernel.tar.gz",
+			"arch": ["amd64"],
+			"state": "",
+			"port": "80:80",
+			"addresses": {
+				"rr_ip": "10.30.30.26"
+			},
+			"added_files": []
+		}]
+	}]
+}
+```
+Differences to Container Deployment:
+- virtualization: set to unikernel
+- code: Specifies a the remote Unikernel accessible via http(s). There can be multiple
+        Unikernels in the same string seperated via ",".
+- arch: Specifies the architecture of the Unikernel given in code. The order of
+        architectures must match the order of Unikernles given via the code field
+
 # Networking 
 
 To enable the communication between services: 
@@ -228,3 +271,5 @@ You can use declare a custom IP Address that uses Round Robin policy. Just decla
 
 To make your life easire you can run the Oakestra front-end.
 Check the [Dashboard](https://github.com/oakestra/dashboard) repository for further info.
+
+
