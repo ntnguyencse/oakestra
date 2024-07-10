@@ -4,3 +4,4 @@ celery==4.4.2
 click
 redis
 requests
+zipp>=3.19.1 # not directly required, pinned by Snyk to avoid a vulnerability
