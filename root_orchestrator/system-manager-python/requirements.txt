@@ -1,5 +1,5 @@
 Flask~=2.1.1
-marshmallow~=3.15.0
+marshmallow~=3.26.2
 flask-smorest
 Flask_PyMongo
 flask_socketio
