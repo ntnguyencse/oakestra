@@ -14,7 +14,8 @@ PyPi
 flask_jwt_extended
 flask_restful
 pymongo~=4.1.1
-werkzeug==2.0.3
+werkzeug==3.1.5
 MarkupSafe~=2.1.1
 flask_swagger_ui
 mongomock==4.1.2
+urllib3>=2.6.3 # not directly required, pinned by Snyk to avoid a vulnerability
